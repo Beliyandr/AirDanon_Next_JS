@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --bg: #0b0f19;
   --bg-deep: #070a10;
@@ -241,7 +243,6 @@ h3,
 
 .hero-media {
   left: 22%;
-  background-image: url("/images/hero-fpv.png");
   background-size: cover;
   background-position: 60% center;
   animation: hero-breathe 16s ease-in-out infinite alternate;

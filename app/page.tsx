@@ -1,4 +1,4 @@
-import AirDanonLanding from "@/components/AirDanonLanding";
+import { AirDanonLanding } from "@/components/AirDanonLanding";
 
 export default function Home() {
   return <AirDanonLanding />;
