@@ -5,7 +5,7 @@ export function Footer() {
     <footer>
       <div className="container footer-inner">
         <Brand />
-        <p>FPV антенны украинского производства</p>
+        <p>FPV антени українського виробництва</p>
         <span>© {new Date().getFullYear()} AirDanon</span>
       </div>
     </footer>

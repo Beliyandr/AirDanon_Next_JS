@@ -12,21 +12,21 @@ export function Hero() {
       <div className="signal-path" aria-hidden="true"><span className="signal-pulse" /></div>
       <div className="container hero-inner relative z-2 flex h-full items-center">
         <div className="hero-copy">
-          <div className="hero-kicker"><span className="live-dot" />Украинское производство</div>
-          <h1>Надежный сигнал.<br />Точная инженерия.</h1>
-          <p className="hero-lead">FPV антенны с индивидуальным моделированием, стабильной видеосвязью на кастомных частотах и проверкой каждого изделия на анализаторе цепей.</p>
+          <div className="hero-kicker"><span className="live-dot" />Українське виробництво</div>
+          <h1>Надійний сигнал.<br />Точна інженерія.</h1>
+          <p className="hero-lead">FPV антени з індивідуальним моделюванням, стабільним відеозв’язком на кастомних частотах і перевіркою кожного виробу на аналізаторі кіл.</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#contacts"><Send size={18} />Написать в Telegram</a>
-            <a className="button button-ghost" href="#catalog">Посмотреть антенны <ChevronRight size={18} /></a>
+            <a className="button button-primary" href="#contacts"><Send size={18} />Написати в Telegram</a>
+            <a className="button button-ghost" href="#catalog">Переглянути антени <ChevronRight size={18} /></a>
           </div>
         </div>
-        <div className="hero-status" aria-label="Ключевые показатели">
-          <div><strong>100%</strong><span>ручной контроль</span></div>
-          <div><strong>VSWR</strong><span>отчет для каждой антенны</span></div>
-          <div><strong>Custom</strong><span>частота под ваше ТЗ</span></div>
+        <div className="hero-status" aria-label="Ключові показники">
+          <div><strong>100%</strong><span>ручний контроль</span></div>
+          <div><strong>VSWR</strong><span>звіт для кожної антени</span></div>
+          <div><strong>Custom</strong><span>частота під ваше ТЗ</span></div>
         </div>
       </div>
-      <a className="scroll-hint" href="#advantages" aria-label="Прокрутить к преимуществам"><ArrowDown size={18} /></a>
+      <a className="scroll-hint" href="#advantages" aria-label="Прокрутити до переваг"><ArrowDown size={18} /></a>
     </section>
   );
 }

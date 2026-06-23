@@ -6,7 +6,7 @@ export function Advantages() {
   return (
     <section className="section advantages-section" id="advantages">
       <div className="container">
-        <SectionHead eyebrow="Инженерный подход" title="Почему выбирают антенны AirDanon" text="Мы контролируем не только конструкцию, но и фактический результат каждой готовой антенны." />
+        <SectionHead eyebrow="Інженерний підхід" title="Чому обирають антени AirDanon" text="Ми контролюємо не лише конструкцію, а й фактичний результат кожної готової антени." />
         <div className="advantage-grid">
           {advantages.map(({ icon: Icon, number, title, text }, index) => (
             <Reveal className="advantage-card" delay={index * 90} key={title}>

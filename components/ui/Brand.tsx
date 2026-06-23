@@ -1,9 +1,12 @@
-import { Radio } from "lucide-react";
+import Image from "next/image";
+import logoMark from "@/public/images/airdanon-mark.png";
 
 export function Brand() {
   return (
-    <a className="brand" href="#top" aria-label="AirDanon, на начало страницы">
-      <span className="brand-mark" aria-hidden="true"><Radio size={20} strokeWidth={1.8} /></span>
+    <a className="brand" href="#top" aria-label="AirDanon, на початок сторінки">
+      <span className="brand-mark" aria-hidden="true">
+        <Image src={logoMark} alt="" priority />
+      </span>
       <span>AIRDANON</span>
     </a>
   );

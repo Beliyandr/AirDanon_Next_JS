@@ -25,16 +25,16 @@ export function Header() {
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="container header-inner">
         <Brand />
-        <nav className="desktop-nav" aria-label="Основная навигация">
+        <nav className="desktop-nav" aria-label="Основна навігація">
           {navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}
         </nav>
-        <a className="button button-outline header-cta" href="#contacts">Связаться <ArrowRight size={16} /></a>
-        <button className="icon-button menu-button" type="button" aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>
+        <a className="button button-outline header-cta" href="#contacts">Зв’язатися <ArrowRight size={16} /></a>
+        <button className="icon-button menu-button" type="button" aria-label={menuOpen ? "Закрити меню" : "Відкрити меню"} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>
           {menuOpen ? <X /> : <Menu />}
         </button>
       </div>
       <div className={`mobile-menu ${menuOpen ? "is-open" : ""}`}>
-        <nav aria-label="Мобильная навигация">
+        <nav aria-label="Мобільна навігація">
           {navigation.map((item) => <a href={item.href} key={item.href} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
         </nav>
       </div>

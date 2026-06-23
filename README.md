@@ -73,4 +73,19 @@ git push -u origin main
 
 ## Перед публикацией
 
-Замените временные ссылки Telegram, Instagram и TikTok в `components/sections/Contact.tsx`, а временный знак бренда в `components/ui/Brand.tsx`.
+Заполните реальные ссылки социальных сетей и endpoint формы через переменные окружения.
+
+## Форма и социальные сети
+
+Скопируйте `.env.example` в `.env.local` и заполните значения:
+
+```env
+NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/your-form-id
+NEXT_PUBLIC_TELEGRAM_URL=https://t.me/your_username
+NEXT_PUBLIC_INSTAGRAM_URL=https://instagram.com/your_username
+NEXT_PUBLIC_TIKTOK_URL=https://tiktok.com/@your_username
+```
+
+Для GitHub Pages добавьте эти значения в **Settings → Secrets and variables → Actions → Variables**.
+
+Для формы можно создать бесплатную форму на Formspree, скопировать ее endpoint и перезапустить сборку. Публичные переменные социальных сетей также используются во время сборки GitHub Pages.

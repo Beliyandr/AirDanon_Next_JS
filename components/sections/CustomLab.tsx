@@ -1,17 +1,17 @@
 import { ArrowRight, Check } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
-const specifications = ["Частота и рабочая полоса", "Тип поляризации", "Коннектор и геометрия корпуса", "Показатели готового прототипа"];
+const specifications = ["Частота та робоча смуга", "Тип поляризації", "Конектор і геометрія корпусу", "Показники готового прототипу"];
 
 export function CustomLab() {
   return (
     <section className="custom-section" id="custom">
       <div className="container custom-grid">
         <Reveal className="custom-copy">
-          <span className="eyebrow">Custom Lab</span><h2>Антенна под конкретное техническое задание</h2>
-          <p>Когда серийной конфигурации недостаточно, мы начинаем с ваших параметров: частоты, оборудования, дальности и условий эксплуатации.</p>
+          <span className="eyebrow">Custom Lab</span><h2>Антена під конкретне технічне завдання</h2>
+          <p>Коли серійної конфігурації недостатньо, ми починаємо з ваших параметрів: частоти, обладнання, дальності та умов експлуатації.</p>
           <div className="spec-list">{specifications.map((item) => <span key={item}><Check size={16} />{item}</span>)}</div>
-          <a className="button button-primary" href="#contacts">Обсудить техническое задание <ArrowRight size={17} /></a>
+          <a className="button button-primary" href="#contacts">Обговорити технічне завдання <ArrowRight size={17} /></a>
         </Reveal>
         <Reveal className="frequency-panel" delay={120}>
           <div className="panel-header"><span>FREQUENCY RESPONSE</span><span className="panel-status"><i />LIVE MODEL</span></div>
