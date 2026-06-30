@@ -1,44 +1,16 @@
 import type { CSSProperties } from "react";
 import { ArrowDown, ChevronRight, Send } from "lucide-react";
 
-const heroFrames = [
-  {
-    src: "/images/hero-story/hero-story-01.jpg",
-    label: "Підготовка до вильоту",
-  },
-  {
-    src: "/images/hero-story/hero-story-02.jpg",
-    label: "Робота у полі",
-  },
-  {
-    src: "/images/hero-story/hero-story-03.jpg",
-    label: "Стабільний сигнал",
-  },
-  {
-    src: "/images/hero-story/hero-story-04.jpg",
-    label: "Результат місії",
-  },
-];
-
 export function Hero() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const mediaStyle = {
+    "--hero-desktop-image": `url("${basePath}/images/hero-story/hero-story.gif")`,
+    "--hero-mobile-image": `url("${basePath}/images/hero-story/hero-story-01.jpg")`,
+  } as CSSProperties;
 
   return (
     <section className="hero" id="top">
-      <div className="hero-story" aria-hidden="true">
-        {heroFrames.map((frame, index) => (
-          <div
-            className="hero-frame"
-            key={frame.src}
-            style={
-              {
-                "--frame-image": `url("${basePath}${frame.src}")`,
-                "--frame-index": index,
-              } as CSSProperties
-            }
-          />
-        ))}
-      </div>
+      <div className="hero-media" style={mediaStyle} aria-hidden="true" />
       <div className="hero-shade" aria-hidden="true" />
       <div className="signal-path" aria-hidden="true">
         <span className="signal-pulse" />
@@ -81,13 +53,6 @@ export function Hero() {
             <strong>Custom</strong>
             <span>частота під ваше ТЗ</span>
           </div>
-        </div>
-        <div className="hero-story-nav" aria-hidden="true">
-          {heroFrames.map((frame, index) => (
-            <span key={frame.label} style={{ "--frame-index": index } as CSSProperties}>
-              {frame.label}
-            </span>
-          ))}
         </div>
       </div>
       <a className="scroll-hint" href="#advantages" aria-label="Прокрутити до переваг">
