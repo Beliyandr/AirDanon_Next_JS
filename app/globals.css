@@ -230,6 +230,7 @@ h3,
 
 .hero {
   position: relative;
+  isolation: isolate;
   min-height: 880px;
   height: 100svh;
   max-height: 1080px;
@@ -237,21 +238,38 @@ h3,
   background: var(--bg-deep);
 }
 
-.hero-media,
+.hero-story,
+.hero-frame,
 .hero-shade,
 .signal-path {
   position: absolute;
   inset: 0;
 }
 
-.hero-media {
+.hero-story {
   left: 22%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  contain: paint;
+}
+
+.hero-frame {
+  background-image: var(--frame-image);
   background-size: cover;
   background-position: 60% center;
-  animation: hero-breathe 16s ease-in-out infinite alternate;
+  opacity: 0;
+  transform: scale(1.02) translate3d(0, 0, 0);
+  animation: hero-story-frame 24s ease-in-out infinite;
+  animation-delay: calc(var(--frame-index) * 6s);
+  backface-visibility: hidden;
+  pointer-events: none;
+  will-change: opacity, transform;
 }
 
 .hero-shade {
+  z-index: 1;
+  pointer-events: none;
   background:
     linear-gradient(90deg, #0b0f19 0%, rgba(11, 15, 25, 0.98) 24%, rgba(11, 15, 25, 0.58) 48%, rgba(11, 15, 25, 0.06) 75%),
     linear-gradient(0deg, #0b0f19 0%, transparent 24%, rgba(7, 10, 16, 0.18) 100%);
@@ -266,6 +284,7 @@ h3,
 }
 
 .signal-path {
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -295,7 +314,7 @@ h3,
 
 .hero-inner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   height: 100%;
   display: flex;
   align-items: center;
@@ -348,6 +367,69 @@ h3,
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+}
+
+.hero-actions .button {
+  transform: translateZ(0);
+}
+
+.hero-actions .button:hover {
+  transform: translateZ(0);
+}
+
+.hero-actions .button-primary:hover {
+  box-shadow: 0 16px 42px rgba(255, 122, 0, 0.3);
+}
+
+.hero-actions .button-ghost:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.hero-story-nav {
+  position: absolute;
+  right: 0;
+  bottom: 146px;
+  width: min(480px, 42vw);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.hero-story-nav span {
+  position: relative;
+  min-width: 0;
+  padding-top: 12px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.25;
+  text-transform: uppercase;
+  transition: color 220ms ease;
+}
+
+.hero-story-nav span::before,
+.hero-story-nav span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+}
+
+.hero-story-nav span::before {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.hero-story-nav span::after {
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: hero-story-progress 24s linear infinite;
+  animation-delay: calc(var(--frame-index) * 6s);
 }
 
 .hero-status {
@@ -1550,9 +1632,19 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes hero-breathe {
-  from { transform: scale(1.01); }
-  to { transform: scale(1.055); }
+@keyframes hero-story-frame {
+  0% { opacity: 0; transform: scale(1.02) translateX(0); }
+  5% { opacity: 1; }
+  25% { opacity: 1; transform: scale(1.075) translateX(-1.6%); }
+  31% { opacity: 0; transform: scale(1.09) translateX(-2.2%); }
+  100% { opacity: 0; transform: scale(1.02) translateX(0); }
+}
+
+@keyframes hero-story-progress {
+  0%, 24.9% { transform: scaleX(0); }
+  25% { transform: scaleX(0); }
+  50% { transform: scaleX(1); }
+  50.1%, 100% { transform: scaleX(0); }
 }
 
 @keyframes signal-travel {
@@ -1675,9 +1767,12 @@ footer {
     min-height: 820px;
   }
 
-  .hero-media {
+  .hero-story {
     left: 0;
     opacity: 0.66;
+  }
+
+  .hero-frame {
     background-position: 68% center;
   }
 
@@ -1793,7 +1888,7 @@ footer {
     padding-bottom: 170px;
   }
 
-  .hero-media {
+  .hero-frame {
     background-position: 73% center;
   }
 
@@ -1838,6 +1933,17 @@ footer {
     left: 14px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-story-nav {
+    right: 14px;
+    bottom: 112px;
+    left: 14px;
+    width: auto;
+  }
+
+  .hero-story-nav span {
+    font-size: 0;
   }
 
   .hero-status div {
@@ -2055,5 +2161,9 @@ footer {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .hero-frame:first-child {
+    opacity: 1;
   }
 }
