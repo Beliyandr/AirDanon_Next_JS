@@ -4,7 +4,7 @@ import { ArrowDown, ChevronRight, Send } from "lucide-react";
 export function Hero() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const mediaStyle = {
-    "--hero-desktop-image": `url("${basePath}/images/hero-story/hero-story.gif")`,
+    "--hero-desktop-image": `url("${basePath}/images/hero-story/hero-story.webp")`,
     "--hero-mobile-image": `url("${basePath}/images/hero-story/hero-story-01.jpg")`,
   } as CSSProperties;
 
