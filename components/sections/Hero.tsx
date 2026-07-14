@@ -1,16 +1,37 @@
-import type { CSSProperties } from "react";
 import { ArrowDown, ChevronRight, Send } from "lucide-react";
+import { HeroSlider } from "@/components/ui/HeroSlider";
+
+const heroSlides = [
+  {
+    src: "/images/hero-story/hero-slide-01.webp",
+    alt: "FPV дрон у польових умовах на заході сонця",
+  },
+  {
+    src: "/images/hero-story/hero-slide-02.webp",
+    alt: "FPV оператор веде дрон у складному середовищі",
+  },
+  {
+    src: "/images/hero-story/hero-slide-03.webp",
+    alt: "Антена FPV системи під час роботи",
+  },
+  {
+    src: "/images/hero-story/hero-slide-04.webp",
+    alt: "FPV дрон після виконання польового завдання",
+  },
+];
 
 export function Hero() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-  const mediaStyle = {
-    "--hero-desktop-image": `url("${basePath}/images/hero-story/hero-story.webp")`,
-    "--hero-mobile-image": `url("${basePath}/images/hero-story/hero-story-01.jpg")`,
-  } as CSSProperties;
+  const slides = heroSlides.map((slide) => ({
+    ...slide,
+    src: `${basePath}${slide.src}`,
+  }));
 
   return (
     <section className="hero" id="top">
-      <div className="hero-media" style={mediaStyle} aria-hidden="true" />
+      <div className="hero-media">
+        <HeroSlider slides={slides} />
+      </div>
       <div className="hero-shade" aria-hidden="true" />
       <div className="signal-path" aria-hidden="true">
         <span className="signal-pulse" />
